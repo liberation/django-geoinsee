@@ -1,0 +1,32 @@
+
+{% extends "geoinsee/base.html" %}
+
+{% block content %}
+
+<h1>{{ object }}</h1>
+
+<ul>
+    <li>{{ object.population }} habitants</li>
+    <li>{{ object.surface }}m2</li>
+    <li>{{ object.latitude }} {{ object.longitude }}</li>
+    {% if object.county %}<li>{{ object.county }}</li>{% endif %}
+    <li>Zone emploi: {{ object.employmentzone }}</li>
+</ul>
+
+{% if near_by_localities %}
+<hr/>
+<ul>
+{% for locality in near_by_localities %}
+  <li>
+    <a href="{{ locality.get_absolute_url }}">
+      {{ locality }} ({{ locality.zipcode }}) <em>{{ locality.geo_dist|floatformat }}Km</em>
+    </a>
+  </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock content %}
+
+
+

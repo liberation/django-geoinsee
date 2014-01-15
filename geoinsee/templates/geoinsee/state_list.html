@@ -1,0 +1,11 @@
+{% extends "geoinsee/base.html" %}
+
+{% block content %}
+<ul>
+{% for state in object_list %}
+    <li>
+        <a href="{{ state.get_absolute_url }}">{{ state }}</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock content %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>{% load staticfiles %}
+<html>
+<head>
+{% block head_extra_css %}{% endblock head_extra_css %}
+{% block head_extra_js %}{% endblock head_extra_js %}
+</head>
+
+<body>
+    {% block breadcrum %}
+    {% if object.get_breadcrumbs %}
+    <ul>
+            <li>
+                <a href="/communes/">France</a>
+            </li>
+        {% for item in object.get_breadcrumbs %}
+            <li>
+                <a href="{{ item.get_absolute_url }}">{{ item }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endblock breadcrum %}
+    {% block content %}{% endblock content %}
+</body>
+</html>

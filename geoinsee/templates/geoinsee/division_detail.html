@@ -1,0 +1,22 @@
+{% extends "geoinsee/base.html" %}
+
+{% block content %}
+
+<h1>{{ object }}</h1>
+
+{% if localities %}
+<ul>
+{% with object.admin as admin %}
+    {% for locality in localities %}
+        <li>
+            {% if locality == admin %}<strong>{% endif %}
+            <a href="{{ locality.get_absolute_url }}">
+                {{ locality.name }} ({{ locality.zipcode }})
+            </a>
+            {% if locality == admin %}</strong>{% endif %}
+        </li>
+    {% endfor %}
+{% endwith %}
+</ul>
+{% endif %}
+{% endblock content %}
