@@ -7,7 +7,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
-setup(name='django-carrier-pigeon',
+setup(name='django-geoinsee',
       version='0.1',
       description='Django French localities based on INSEE',
       long_description=read('README.rst'),
