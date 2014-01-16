@@ -178,7 +178,7 @@ class County(models.Model):
         db_index=True)
 
     typology = models.CharField(
-        max_length=2,
+        max_length=3,
         db_index=True,
         choices=COUNTY_TYPE)
 
