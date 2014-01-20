@@ -1,0 +1,117 @@
+[
+{
+  "pk": "21", 
+  "model": "geoinsee.state", 
+  "fields": {
+    "admin": "51108", 
+    "name": "Champagne-Ardenne", 
+    "slug": "champagne-ardenne"
+  }
+},
+{
+  "pk": "51", 
+  "model": "geoinsee.division", 
+  "fields": {
+    "admin": "51108", 
+    "state": "21", 
+    "name": "Marne", 
+    "slug": "marne"
+  }
+},
+{
+  "pk": "513", 
+  "model": "geoinsee.district", 
+  "fields": {
+    "division": "51", 
+    "name": "Reims", 
+    "admin": "51454", 
+    "state": "21", 
+    "prefix": "", 
+    "slug": "reims"
+  }
+},
+{
+  "pk": "511", 
+  "model": "geoinsee.district", 
+  "fields": {
+    "division": "51", 
+    "name": "Ch\u00e2lons-en-Champagne", 
+    "admin": "51108", 
+    "state": "21", 
+    "prefix": "", 
+    "slug": "chalons-en-champagne"
+  }
+},
+{
+  "pk": "51108", 
+  "model": "geoinsee.locality", 
+  "fields": {
+    "division": "51", 
+    "name": "Ch\u00e2lons-en-Champagne", 
+    "district": "511", 
+    "zipcode": "51000", 
+    "surface": 26050, 
+    "slug": "chalons-en-champagne", 
+    "county": 245100029, 
+    "state": "21", 
+    "longitude": "4.378835397", 
+    "latitude": "48.964089212", 
+    "employmentzone": 2103, 
+    "typology": "COM", 
+    "population": 45299
+  }
+},
+{
+  "pk": "51454", 
+  "model": "geoinsee.locality", 
+  "fields": {
+    "division": "51", 
+    "name": "Reims", 
+    "district": "513", 
+    "zipcode": "51100", 
+    "surface": 46900, 
+    "slug": "reims", 
+    "county": 200033686, 
+    "state": "21", 
+    "longitude": "4.040230232", 
+    "latitude": "49.251490607", 
+    "employmentzone": 2105, 
+    "typology": "COM", 
+    "population": 179992
+  }
+},
+{
+  "pk": 200033686, 
+  "model": "geoinsee.county", 
+  "fields": {
+    "typology": "CA", 
+    "name": "Communaut\u00e9s d'agglom\u00e9ration Reims M\u00e9tropole", 
+    "slug": ""
+  }
+},
+{
+  "pk": 245100029, 
+  "model": "geoinsee.county", 
+  "fields": {
+    "typology": "CA", 
+    "name": "Communaut\u00e9s d'agglom\u00e9ration de Ch\u00e2lons en Champagne", 
+    "slug": ""
+  }
+},
+{
+  "pk": 2103, 
+  "model": "geoinsee.employmentzone", 
+  "fields": {
+    "name": "Ch\u00e2lons-en-Champagne", 
+    "slug": "chalons-en-champagne"
+  }
+},
+{
+  "pk": 2105, 
+  "model": "geoinsee.employmentzone", 
+  "fields": {
+    "name": "Reims", 
+    "slug": "reims"
+  }
+}
+]
