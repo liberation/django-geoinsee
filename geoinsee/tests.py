@@ -12,10 +12,24 @@ from geoinsee.models import EmploymentZone
 
 
 class BaseViewTestCase(TestCase):
+    urls = 'geoinsee.urls'
     fixtures = ['test.json']
+    model = State
+
+    def test_status_code(self):
+        item = self.model.objects.all()[0]
+        url = item.get_absolute_url()
+        response = self.client.get(url, follow=True)
+        self.assertEquals(response.status_code, 200)
 
 
 class StateListViewTest(BaseViewTestCase):
+    model = State
 
-    def test_bla(self):
-        print Locality.objects.count()
+
+class DivisionListViewTest(BaseViewTestCase):
+    model = Division
+
+
+class LocalityListViewTest(BaseViewTestCase):
+    model = Locality
