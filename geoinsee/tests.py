@@ -1,14 +1,9 @@
 """Geoinsee test views"""
-from decimal import Decimal
 from django.test import TestCase
-from django.test.client import Client
 
 from geoinsee.models import Locality
 from geoinsee.models import State
 from geoinsee.models import Division
-from geoinsee.models import District
-from geoinsee.models import County
-from geoinsee.models import EmploymentZone
 
 
 class BaseViewTestCase(TestCase):
@@ -16,10 +11,23 @@ class BaseViewTestCase(TestCase):
     fixtures = ['test.json']
     model = State
 
-    def test_status_code(self):
+    def get_response(self):
         item = self.model.objects.all()[0]
         url = item.get_absolute_url()
         response = self.client.get(url, follow=True)
+        return response
+
+    def test_template_used(self):
+        response = self.get_response()
+        template_name = 'geoinsee/%s_detail.html' % self.model.__name__.lower()
+        self.assertTemplateUsed(response, template_name)
+
+    def test_context(self):
+        response = self.get_response()
+        self.assertTrue(isinstance(response.context['object'], self.model))
+
+    def test_status_code(self):
+        response = self.get_response()
         self.assertEquals(response.status_code, 200)
 
 
