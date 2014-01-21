@@ -8,7 +8,7 @@ from geoinsee.models import Division
 
 class BaseViewTestCase(TestCase):
     urls = 'geoinsee.urls'
-    fixtures = ['test.json']
+    fixtures = ['geoinsee_test.json']
     model = State
 
     def get_response(self):
