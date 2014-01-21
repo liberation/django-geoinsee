@@ -16,6 +16,5 @@ setup(name='django-geoinsee',
       author_email='grangier@gmail.com',
       url='https://github.com/grangier/django-geoinsee',
       install_requires=['Django'],
-      test_suite='geoinsee.tests.suite',
       packages=find_packages(exclude=['tests']),
 )
