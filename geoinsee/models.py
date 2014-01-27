@@ -252,11 +252,19 @@ class Locality(models.Model):
         'EmploymentZone',
         null=True)
 
+    admin = models.ForeignKey(
+        'Locality',
+        null=True)
+
     objects = LocalityManager()
 
     class Meta:
         verbose_name = u"commune"
         verbose_name_plural = u"communes"
+
+    @property
+    def locality_districts(self):
+        return self.locality_set.filter(typology="ARM")
 
     @cached_property
     def get_breadcrumbs(self):
