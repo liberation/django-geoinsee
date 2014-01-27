@@ -7,7 +7,6 @@ from math import cos
 
 from django.core.urlresolvers import reverse
 from django.db import models
-from django.utils.functional import cached_property
 
 from geoinsee.constants import COUNTY_TYPE
 from geoinsee.constants import LOCALITY_TYPE
@@ -81,7 +80,6 @@ class Division(models.Model):
             'code': self.code
         })
 
-    @cached_property
     def get_breadcrumbs(self):
         return [self.state, self]
 
@@ -121,8 +119,6 @@ class District(models.Model):
         verbose_name = u"Arrondissement"
         verbose_name_plural = u"Arrondissements"
 
-
-    @cached_property
     def get_breadcrumbs(self):
         return [self.state, self.division, self]
 
@@ -186,7 +182,6 @@ class County(models.Model):
         verbose_name = u"intercommunalité"
         verbose_name_plural = u"intercommunalités"
 
-    @cached_property
     def get_breadcrumbs(self):
         return [self.state, self.division, self]
 
@@ -266,7 +261,6 @@ class Locality(models.Model):
     def locality_districts(self):
         return self.locality_set.filter(typology="ARM")
 
-    @cached_property
     def get_breadcrumbs(self):
         return [self.state, self.division, self]
 
