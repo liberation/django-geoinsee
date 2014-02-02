@@ -1,0 +1,247 @@
+[
+  {
+    "code": "76351", 
+    "name": "Le Havre", 
+    "zipcode": "76600"
+  }, 
+  {
+    "code": "06088", 
+    "name": "Nice", 
+    "zipcode": "06000"
+  }, 
+  {
+    "code": "15140", 
+    "name": "Naucelles", 
+    "zipcode": "15000"
+  }, 
+  {
+    "code": "06004", 
+    "name": "Antibes", 
+    "zipcode": "06600"
+  }, 
+  {
+    "code": "2B201", 
+    "name": "Pancheraccia", 
+    "zipcode": "20251"
+  }, 
+  {
+    "code": "76540", 
+    "name": "Rouen", 
+    "zipcode": "76000"
+  }, 
+  {
+    "code": "33063", 
+    "name": "Bordeaux", 
+    "zipcode": "33000"
+  }, 
+  {
+    "code": "64545", 
+    "name": "Urrugne", 
+    "zipcode": "64122"
+  }, 
+  {
+    "code": "07103", 
+    "name": "Intres", 
+    "zipcode": "07310"
+  }, 
+  {
+    "code": "06029", 
+    "name": "Cannes", 
+    "zipcode": "06400"
+  }, 
+  {
+    "code": "97101", 
+    "name": "Les Abymes", 
+    "zipcode": "97139"
+  }, 
+  {
+    "code": "67066", 
+    "name": "La Broque", 
+    "zipcode": "67130"
+  }, 
+  {
+    "code": "59009", 
+    "name": "Villeneuve-d'Ascq", 
+    "zipcode": "59650"
+  }, 
+  {
+    "code": "37261", 
+    "name": "Tours", 
+    "zipcode": "37000"
+  }, 
+  {
+    "code": "65059", 
+    "name": "Bagn\u00e8res-de-Bigorre", 
+    "zipcode": "65200"
+  }, 
+  {
+    "code": "66136", 
+    "name": "Perpignan", 
+    "zipcode": "66000"
+  }, 
+  {
+    "code": "50129", 
+    "name": "Cherbourg-Octeville", 
+    "zipcode": "50100"
+  }, 
+  {
+    "code": "59350", 
+    "name": "Lille", 
+    "zipcode": "59000"
+  }, 
+  {
+    "code": "2B033", 
+    "name": "Bastia", 
+    "zipcode": "20200"
+  }, 
+  {
+    "code": "39274", 
+    "name": "Lajoux", 
+    "zipcode": "39310"
+  }, 
+  {
+    "code": "45234", 
+    "name": "Orl\u00e9ans", 
+    "zipcode": "45000"
+  }, 
+  {
+    "code": "57463", 
+    "name": "Metz", 
+    "zipcode": "57000"
+  }, 
+  {
+    "code": "67482", 
+    "name": "Strasbourg", 
+    "zipcode": "67000"
+  }, 
+  {
+    "code": "59183", 
+    "name": "Dunkerque", 
+    "zipcode": "59140"
+  }, 
+  {
+    "code": "95127", 
+    "name": "Cergy", 
+    "zipcode": "95000"
+  }, 
+  {
+    "code": "94068", 
+    "name": "Saint-Maur-des-Foss\u00e9s", 
+    "zipcode": "94100"
+  }, 
+  {
+    "code": "63113", 
+    "name": "Clermont-Ferrand", 
+    "zipcode": "63000"
+  }, 
+  {
+    "code": "93066", 
+    "name": "Saint-Denis", 
+    "zipcode": "93200"
+  }, 
+  {
+    "code": "83118", 
+    "name": "Saint-Rapha\u00ebl", 
+    "zipcode": "83700"
+  }, 
+  {
+    "code": "42218", 
+    "name": "Saint-\u00c9tienne", 
+    "zipcode": "42000"
+  }, 
+  {
+    "code": "31555", 
+    "name": "Toulouse", 
+    "zipcode": "31000"
+  }, 
+  {
+    "code": "30189", 
+    "name": "N\u00eemes", 
+    "zipcode": "30000"
+  }, 
+  {
+    "code": "49007", 
+    "name": "Angers", 
+    "zipcode": "49000"
+  }, 
+  {
+    "code": "92048", 
+    "name": "Meudon", 
+    "zipcode": "92190"
+  }, 
+  {
+    "code": "68026", 
+    "name": "Bennwihr", 
+    "zipcode": "68630"
+  }, 
+  {
+    "code": "13001", 
+    "name": "Aix-en-Provence", 
+    "zipcode": "13100"
+  }, 
+  {
+    "code": "35238", 
+    "name": "Rennes", 
+    "zipcode": "35000"
+  }, 
+  {
+    "code": "95500", 
+    "name": "Pontoise", 
+    "zipcode": "95300"
+  }, 
+  {
+    "code": "83061", 
+    "name": "Fr\u00e9jus", 
+    "zipcode": "83600"
+  }, 
+  {
+    "code": "44109", 
+    "name": "Nantes", 
+    "zipcode": "44000"
+  }, 
+  {
+    "code": "38185", 
+    "name": "Grenoble", 
+    "zipcode": "38000"
+  }, 
+  {
+    "code": "34172", 
+    "name": "Montpellier", 
+    "zipcode": "34000"
+  }, 
+  {
+    "code": "87085", 
+    "name": "Limoges", 
+    "zipcode": "87000"
+  }, 
+  {
+    "code": "72181", 
+    "name": "Le Mans", 
+    "zipcode": "72000"
+  }, 
+  {
+    "code": "83137", 
+    "name": "Toulon", 
+    "zipcode": "83000"
+  }, 
+  {
+    "code": "97209", 
+    "name": "Fort-de-France", 
+    "zipcode": "97200"
+  }, 
+  {
+    "code": "68224", 
+    "name": "Mulhouse", 
+    "zipcode": "68100"
+  }, 
+  {
+    "code": "60048", 
+    "name": "Baugy", 
+    "zipcode": "60113"
+  }, 
+  {
+    "code": "06069", 
+    "name": "Grasse", 
+    "zipcode": "06130"
+  }
+]
