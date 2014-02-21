@@ -48,7 +48,8 @@ class DivisionView(BaseDetailView):
     model = Division
 
     def get_extra_context(self):
-        localities = self.object.locality_set.all().order_by('slug')
+        localities = self.object.locality_set.all(
+            ).prefetch_related('division').order_by('slug')
         return {'localities': localities}
 
     def get_object(self):
