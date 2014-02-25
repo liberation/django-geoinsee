@@ -1,5 +1,6 @@
 """Geoinsee test views"""
 from django.test import TestCase
+from django.test import Client
 
 from geoinsee.models import Locality
 from geoinsee.models import State
@@ -34,10 +35,25 @@ class BaseViewTestCase(TestCase):
 class StateListViewTest(BaseViewTestCase):
     model = State
 
+    def test_notfound(self):
+        c = Client()
+        response = c.get('/xxxx/')
+        self.assertEquals(response.status_code, 404)
+
 
 class DivisionListViewTest(BaseViewTestCase):
     model = Division
 
+    def test_notfound(self):
+        c = Client()
+        response = c.get('/champagne-ardenne/xxxx_75/')
+        self.assertEquals(response.status_code, 404)
+
 
 class LocalityListViewTest(BaseViewTestCase):
     model = Locality
+
+    def test_notfound(self):
+        c = Client()
+        response = c.get('/champagne-ardenne/marne_51/xxxxx_51241/')
+        self.assertEquals(response.status_code, 404)
