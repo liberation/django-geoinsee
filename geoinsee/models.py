@@ -218,7 +218,7 @@ class Locality(models.Model):
         db_index=True,
         choices=LOCALITY_TYPE)
 
-    surface = models.PositiveIntegerField(
+    surface = models.BigIntegerField(
         null=True)
     population = models.PositiveIntegerField(
         db_index=True)
