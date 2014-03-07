@@ -99,11 +99,6 @@ class Migration(DataMigration):
             'typology': ('django.db.models.fields.CharField', [], {'max_length': '3', 'db_index': 'True'}),
             'zipcode': ('django.db.models.fields.CharField', [], {'max_length': '5', 'null': 'True', 'db_index': 'True'})
         },
-        u'geoinsee.localityzipcode': {
-            'Meta': {'object_name': 'LocalityZipcode'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'zipcode': ('django.db.models.fields.CharField', [], {'max_length': '5', 'null': 'True', 'db_index': 'True'})
-        },
         u'geoinsee.state': {
             'Meta': {'object_name': 'State'},
             'admin': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'state_admin'", 'null': 'True', 'to': u"orm['geoinsee.Locality']"}),
