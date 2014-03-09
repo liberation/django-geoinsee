@@ -13,6 +13,7 @@ from django.shortcuts import get_object_or_404
 from geoinsee.models import Locality
 from geoinsee.models import State
 from geoinsee.models import Division
+from geoinsee.utils import slugifyfr
 
 
 class StateListView(ListView):
@@ -103,9 +104,10 @@ class LocalitySearchView(View):
             kwarg = 'zipcode__istartswith'
         # full name
         else:
-            kwarg = 'name__istartswith'
+            query = slugifyfr(query)
+            kwarg = 'slug__istartswith'
         # query
-        localities = Locality.objects.filter(**{kwarg: query})[:20]
+        localities = Locality.objects.filter(**{kwarg: query})[:30]
         values = []
         for locality in localities:
             values.append({
