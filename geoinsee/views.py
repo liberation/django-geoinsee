@@ -3,14 +3,17 @@ import json
 
 from django.http import HttpResponse
 from django.utils.decorators import method_decorator
+from django.http import Http404
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import View
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from django.shortcuts import get_object_or_404
 
 from geoinsee.models import Locality
 from geoinsee.models import State
 from geoinsee.models import Division
+from geoinsee.utils import slugifyfr
 
 
 class StateListView(ListView):
@@ -40,7 +43,7 @@ class StateView(BaseDetailView):
         return {'divisions': divisions}
 
     def get_object(self):
-        return self.model.objects.get(slug=self.kwargs['slug'])
+        return get_object_or_404(self.model, slug=self.kwargs['slug'])
 
 
 class DivisionView(BaseDetailView):
@@ -48,12 +51,15 @@ class DivisionView(BaseDetailView):
     model = Division
 
     def get_extra_context(self):
-        localities = self.object.locality_set.all().order_by('slug')
+        localities = self.object.locality_set.all(
+            ).prefetch_related('division').order_by('slug')
         return {'localities': localities}
 
     def get_object(self):
-        return self.model.objects.get(slug=self.kwargs['slug'],
-                                      code=self.kwargs['code'])
+        return get_object_or_404(
+            self.model,
+            slug=self.kwargs['slug'],
+            code=self.kwargs['code'])
 
 
 class LocalityView(BaseDetailView):
@@ -65,14 +71,17 @@ class LocalityView(BaseDetailView):
         return {'near_by_localities': localities}
 
     def get_object(self):
-        return self.model.objects.prefetch_related(
-                    'state', 'division',
-                    'county', 'employmentzone'
-                ).get(
-                    slug=self.kwargs['locality_slug'],
-                    zipcode=self.kwargs['zipcode'],
-                    division__slug=self.kwargs['division_slug'],
-                    division__code=self.kwargs['division_code'])
+        try:
+            return self.model.objects.prefetch_related(
+                        'state', 'division',
+                        'county', 'employmentzone'
+                    ).get(
+                        slug=self.kwargs['locality_slug'],
+                        zipcode=self.kwargs['zipcode'],
+                        division__slug=self.kwargs['division_slug'],
+                        division__code=self.kwargs['division_code'])
+        except self.model.DoesNotExist:
+            raise Http404
 
 
 class LocalitySearchView(View):
@@ -95,9 +104,10 @@ class LocalitySearchView(View):
             kwarg = 'zipcode__istartswith'
         # full name
         else:
-            kwarg = 'name__istartswith'
+            query = slugifyfr(query)
+            kwarg = 'slug__istartswith'
         # query
-        localities = Locality.objects.filter(**{kwarg: query})[:20]
+        localities = Locality.objects.filter(**{kwarg: query})[:30]
         values = []
         for locality in localities:
             values.append({

@@ -37,6 +37,9 @@ class State(models.Model):
         verbose_name = u"région"
         verbose_name_plural = u"régions"
 
+    def top_localities(self, num=10):
+        return self.locality_set.all().order_by('-population')[:num]
+
     def get_absolute_url(self):
         return reverse('geoinsee_state', kwargs={
             'slug': self.slug
@@ -73,6 +76,9 @@ class Division(models.Model):
     class Meta:
         verbose_name = u"département"
         verbose_name_plural = u"départements"
+
+    def top_localities(self, num=10):
+        return self.locality_set.all().order_by('-population')[:num]
 
     def get_absolute_url(self):
         return reverse('geoinsee_division', kwargs={
@@ -212,7 +218,7 @@ class Locality(models.Model):
         db_index=True,
         choices=LOCALITY_TYPE)
 
-    surface = models.PositiveIntegerField(
+    surface = models.BigIntegerField(
         null=True)
     population = models.PositiveIntegerField(
         db_index=True)

@@ -16,12 +16,12 @@ urlpatterns = patterns(
         LocalitySearchView.as_view(),
         name='geoinsee_locality_search'),
     # locality
-    url(r'^(?P<division_slug>[-\w]+)_(?P<division_code>\d+)/'
+    url(r'^(?P<division_slug>[-\w]+)_(?P<division_code>[AB\d]+)/'
         '(?P<locality_slug>[-\w]+)_(?P<zipcode>\d+)/$',
         LocalityView.as_view(),
         name='geoinsee_locality'),
     # division
-    url(r'^(?P<slug>[-\w]+)_(?P<code>\d+)/$',
+    url(r'^(?P<slug>[-\w]+)_(?P<code>[AB\d]+)/$',
         DivisionView.as_view(),
         name='geoinsee_division'),
     # state

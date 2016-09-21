@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import json
+
 from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import DataMigration
@@ -8,22 +9,22 @@ from django.db import models
 
 class Migration(DataMigration):
 
-    def update_zipcode(self, orm, item):
-        locality = orm.Locality.objects.get(code=item['code'])
-        locality.zipcode = item['zipcode']
+    def update_surface(self, orm, item):
+        locality = orm.Locality.objects.get(code=item['pk'])
+        locality.surface = item['surface']
         if not db.dry_run:
             locality.save()
 
     def forwards(self, orm):
         "Write your forwards methods here."
-        # Note: Don't use "from appname.models import ModelName". 
+        # Note: Don't use "from appname.models import ModelName".
         # Use orm.ModelName to refer to models in this application,
         # and orm['appname.ModelName'] for models in other applications.
         data_file_path = os.path.realpath(
                         os.path.join(
                             os.path.dirname(__file__),
                             'data',
-                            '0005_zipcodes.json'
+                            '0007_surface.json'
                         )
                     )
         # read file and load JSON data
@@ -31,23 +32,10 @@ class Migration(DataMigration):
         content = f.read()
         data = json.loads(content)
         for item in data:
-            self.update_zipcode(orm, item)
+            self.update_surface(orm, item)
 
     def backwards(self, orm):
         "Write your backwards methods here."
-        data_file_path = os.path.realpath(
-                        os.path.join(
-                            os.path.dirname(__file__),
-                            'data',
-                            '0005_zipcodes_backwards.json'
-                        )
-                    )
-        # read file and load JSON data
-        f = open(data_file_path, 'r')
-        content = f.read()
-        data = json.loads(content)
-        for item in data:
-            self.update_zipcode(orm, item)
 
     models = {
         u'geoinsee.county': {
@@ -95,7 +83,7 @@ class Migration(DataMigration):
             'population': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'slug': ('django.db.models.fields.CharField', [], {'max_length': '200', 'db_index': 'True'}),
             'state': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['geoinsee.State']", 'null': 'True'}),
-            'surface': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True'}),
+            'surface': ('django.db.models.fields.BigIntegerField', [], {'null': 'True'}),
             'typology': ('django.db.models.fields.CharField', [], {'max_length': '3', 'db_index': 'True'}),
             'zipcode': ('django.db.models.fields.CharField', [], {'max_length': '5', 'null': 'True', 'db_index': 'True'})
         },
